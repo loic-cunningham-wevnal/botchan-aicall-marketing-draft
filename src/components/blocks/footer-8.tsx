@@ -93,7 +93,10 @@ const cols: ReadonlyArray<{ title: string; links: ReadonlyArray<FooterLink> }> =
 
 export default function Footer8() {
 	return (
-		<footer className="relative w-full overflow-hidden bg-[var(--canvas)] px-4 py-12 text-[var(--ink)] sm:px-6 sm:py-16 lg:px-8">
+		<footer
+			className="relative w-full overflow-hidden bg-[var(--canvas)] px-4 py-12 text-[var(--ink)] sm:px-6 sm:py-16 lg:px-8"
+			id="site-footer"
+		>
 			<div className="relative mx-auto w-full max-w-[1400px]">
 				<div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr] lg:gap-12">
 					<motion.div

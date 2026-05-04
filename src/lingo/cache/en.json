@@ -104,6 +104,20 @@
     "2d21fe63ee5c": "by",
     "672704b1524f": "wevnal",
     "bdf6746c311c": "BOTCHAN AICALL",
-    "e19cbdf059e8": "BOTCHAN <br0></br0> AICALL"
+    "e19cbdf059e8": "BOTCHAN <br0></br0> AICALL",
+    "125f870cf18d": "Powered by",
+    "232ec1422962": "Incoming call · {expression0}",
+    "2c1358cb59c3": "{expression0} / {expression1}",
+    "33e9570ac9ae": "— {expression0}",
+    "3a829917d80c": "Completed",
+    "7d0039734a89": "Active",
+    "845ca1174e1f": "Dismiss",
+    "85d0fa429e2a": "In progress",
+    "892a241c008b": "{expression0} · {expression1}",
+    "90e363387022": "Use Cases",
+    "9e08a43abcfe": "AICALL",
+    "a7189f88f714": "✓",
+    "d825dd69eb9e": "5G",
+    "f9ff76e2c8c9": "9:41"
   }
 }

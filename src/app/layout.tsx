@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Geist_Mono, Inter } from "next/font/google";
 
 import { Navigation } from "~/components/navigation/navigation";
+import { ScrollScrim } from "~/components/scroll-scrim";
 import { SmoothScroll } from "~/components/smooth-scroll";
 import { ThemeProvider } from "~/components/theme-provider";
 import { cn } from "~/lib/utils";
@@ -48,6 +49,9 @@ export default function RootLayout({
 						<SmoothScroll>
 							<TRPCReactProvider>{children}</TRPCReactProvider>
 						</SmoothScroll>
+						<ScrollScrim
+							sectionIds={["problem", "solution", "comparison"]}
+						/>
 						<Navigation />
 					</ThemeProvider>
 				</body>

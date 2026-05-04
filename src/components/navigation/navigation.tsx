@@ -2,7 +2,7 @@
 
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { WevnalLogo } from "~/components/wevnal-logo";
 
 const NAV_ITEMS = [
@@ -25,6 +25,24 @@ const SOCIAL_LINKS = [
 
 export function Navigation() {
 	const [isExpanded, setIsExpanded] = useState(false);
+	const [hidden, setHidden] = useState(false);
+
+	useEffect(() => {
+		const footer = document.getElementById("site-footer");
+		if (!footer) return;
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry) setHidden(entry.isIntersecting);
+			},
+			{ threshold: 0.05 },
+		);
+		observer.observe(footer);
+		return () => observer.disconnect();
+	}, []);
+
+	useEffect(() => {
+		if (hidden && isExpanded) setIsExpanded(false);
+	}, [hidden, isExpanded]);
 
 	return (
 		<>
@@ -44,10 +62,14 @@ export function Navigation() {
 			</AnimatePresence>
 
 			<motion.nav
-				animate={{ opacity: 1, y: 0 }}
+				animate={{
+					opacity: hidden ? 0 : 1,
+					y: hidden ? 32 : 0,
+					pointerEvents: hidden ? "none" : "auto",
+				}}
 				className="pointer-events-none fixed right-0 bottom-6 left-0 z-50 px-6"
 				initial={{ opacity: 0, y: 20 }}
-				transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+				transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: hidden ? 0 : 0.4 }}
 			>
 				<div className="pointer-events-auto mx-auto max-w-2xl">
 					<div className="overflow-hidden rounded-2xl border border-[var(--rule)] bg-[var(--canvas)] shadow-2xl shadow-black/30 backdrop-blur-xl">

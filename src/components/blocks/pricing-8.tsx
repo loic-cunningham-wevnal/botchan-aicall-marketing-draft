@@ -3,6 +3,7 @@
 import { Check, ChevronDown, ChevronUp, Minus, X } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
+import GradualBlur from "~/components/gradual-blur/gradual-blur";
 import AsciiWaves from "~/components/react-bits/ascii-waves";
 import StaggeredText from "~/components/react-bits/staggered-text";
 
@@ -485,6 +486,19 @@ export default function Pricing8() {
 					想定TCO削減率 <span className="text-[#0cf]">40%+</span>（最小ケース）· 担当CSリードがお見積り
 				</motion.p>
 			</div>
+
+			{/* Soften the ascii-waves edge into the next section */}
+			<GradualBlur
+				animated="scroll"
+				curve="bezier"
+				divCount={5}
+				height="6rem"
+				opacity={0.9}
+				position="bottom"
+				strength={1.4}
+				target="parent"
+				zIndex={5}
+			/>
 		</section>
 	);
 }
