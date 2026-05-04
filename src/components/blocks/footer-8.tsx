@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { SpotlightWordmark } from "~/components/spotlight-wordmark";
+import { WevnalLogo } from "~/components/wevnal-logo";
 
 const socials = [
 	{
@@ -96,12 +97,20 @@ export default function Footer8() {
 			<div className="relative mx-auto w-full max-w-[1400px]">
 				<div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr] lg:gap-12">
 					<motion.div
-						className="flex flex-col gap-6"
+						className="flex flex-col items-start gap-6"
 						initial={{ opacity: 0, y: 12 }}
 						transition={{ duration: 0.3 }}
 						viewport={{ once: true }}
 						whileInView={{ opacity: 1, y: 0 }}
 					>
+						<div className="flex items-center gap-4">
+							<WevnalLogo className="h-9 w-auto shrink-0 text-[var(--ink)]" />
+							<span className="border-[var(--rule)] border-l pl-4 font-mono text-[11px] text-[var(--ink)]/65 uppercase leading-[1.4] tracking-[0.22em]">
+								BOTCHAN
+								<br />
+								AICALL
+							</span>
+						</div>
 						<p className="max-w-xs font-light text-[var(--ink)] text-sm leading-[1.55] sm:text-base">
 							BOTCHAN AICALL — インバウンドコール向け電話AIエージェント。24時間365日の稼働、Goodオペレーター品質、基幹システムとのリアルタイム連携。
 						</p>
@@ -171,7 +180,12 @@ export default function Footer8() {
 				</div>
 
 				<div className="flex flex-col items-start justify-between gap-4 border-[var(--rule)] border-t pt-6 font-mono text-[10px] text-[var(--ink)]/55 uppercase tracking-[0.18em] sm:flex-row sm:items-center sm:text-xs">
-					<p>© {new Date().getFullYear()} 株式会社wevnal — All rights reserved</p>
+					<div className="flex items-center gap-3">
+						<WevnalLogo className="h-5 text-[var(--ink)]/75" />
+						<span>
+							© {new Date().getFullYear()} 株式会社wevnal — All rights reserved
+						</span>
+					</div>
 					<div className="flex items-center gap-5">
 						<a
 							className="transition-colors hover:text-[var(--ink)]"

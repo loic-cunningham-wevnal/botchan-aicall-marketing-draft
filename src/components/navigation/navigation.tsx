@@ -3,6 +3,7 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import { WevnalLogo } from "~/components/wevnal-logo";
 
 const NAV_ITEMS = [
 	{ title: "お悩み", subtitle: "現場の課題", href: "#problem" },
@@ -66,17 +67,13 @@ export function Navigation() {
 											initial={{ opacity: 0, y: 10 }}
 											transition={{ duration: 0.3, delay: 0.1 }}
 										>
-											<div className="flex items-center gap-3">
-												<div className="flex h-9 w-9 items-center justify-center rounded-md bg-[var(--ink)]">
-													<span className="font-bold text-[var(--canvas)] text-sm tracking-tight">
-														B
-													</span>
-												</div>
-												<div className="font-mono text-[10px] text-[var(--ink)]/60 uppercase leading-tight tracking-[0.22em]">
+											<div className="flex items-center gap-4">
+												<WevnalLogo className="h-7 text-[var(--ink)]" />
+												<span className="border-[var(--rule)] border-l pl-4 font-mono text-[10px] text-[var(--ink)]/60 uppercase leading-tight tracking-[0.22em]">
 													BOTCHAN
 													<br />
 													AICALL
-												</div>
+												</span>
 											</div>
 											<a
 												className="rounded-md bg-[var(--ink)] px-4 py-2 font-mono text-[11px] text-[var(--canvas)] uppercase tracking-[0.18em] transition-opacity hover:opacity-80"
@@ -136,21 +133,29 @@ export function Navigation() {
 
 										<motion.div
 											animate={{ opacity: 1, y: 0 }}
-											className="flex items-center gap-5 pt-1"
+											className="flex items-center justify-between gap-5 border-[var(--rule)] border-t pt-4"
 											initial={{ opacity: 0, y: 10 }}
 											transition={{ duration: 0.3, delay: 0.55 }}
 										>
-											{SOCIAL_LINKS.map((link) => (
-												<a
-													className="font-mono text-[10px] text-[var(--ink)]/50 uppercase tracking-[0.22em] transition-colors hover:text-[var(--ink)]"
-													href={link.href}
-													key={link.name}
-													rel="noopener noreferrer"
-													target="_blank"
-												>
-													{link.name}
-												</a>
-											))}
+											<div className="flex items-center gap-5">
+												{SOCIAL_LINKS.map((link) => (
+													<a
+														className="font-mono text-[10px] text-[var(--ink)]/50 uppercase tracking-[0.22em] transition-colors hover:text-[var(--ink)]"
+														href={link.href}
+														key={link.name}
+														rel="noopener noreferrer"
+														target="_blank"
+													>
+														{link.name}
+													</a>
+												))}
+											</div>
+											<div className="flex items-center gap-2.5">
+												<span className="font-mono text-[10px] text-[var(--ink)]/45 uppercase tracking-[0.22em]">
+													by
+												</span>
+												<WevnalLogo className="h-4 text-[var(--ink)]/75" />
+											</div>
 										</motion.div>
 									</div>
 								</motion.div>
@@ -172,8 +177,12 @@ export function Navigation() {
 									{isExpanded ? "閉じる" : "メニュー"}
 								</span>
 							</div>
-							<div className="font-mono text-[11px] text-[var(--ink)]/50 uppercase tracking-[0.22em]">
-								BOTCHAN AICALL
+							<div className="flex items-center gap-3">
+								<span className="font-mono text-[11px] text-[var(--ink)]/55 uppercase tracking-[0.22em]">
+									BOTCHAN AICALL
+								</span>
+								<span className="h-3 w-px bg-[var(--rule)]" />
+								<WevnalLogo className="h-4 text-[var(--ink)]/65" />
 							</div>
 						</button>
 					</div>

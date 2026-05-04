@@ -21,6 +21,7 @@ import LiquidLines from "~/components/react-bits/liquid-lines";
 import PixelBlast from "~/components/react-bits/pixel-blast";
 import { Portal } from "~/components/react-bits/portal";
 import { ThemeToggle } from "~/components/theme-toggle";
+import { WevnalLogo } from "~/components/wevnal-logo";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -143,10 +144,13 @@ function HeroOrbSection() {
 				initial={{ opacity: 0, y: -8 }}
 				transition={{ duration: 0.7, ease, delay: 0.2 }}
 			>
-				<div className="font-mono text-[max(0.7rem,0.85vmax)] text-[var(--ink)]/85 uppercase leading-[1.6] tracking-[0.22em]">
-					電話AIエージェント
-					<br />
-					BOTCHAN AICALL · 株式会社wevnal
+				<div className="flex flex-col gap-3">
+					<WevnalLogo className="h-[max(1.6rem,2vmax)] text-[var(--ink)]" />
+					<span className="font-mono text-[max(0.7rem,0.85vmax)] text-[var(--ink)]/80 uppercase leading-[1.6] tracking-[0.22em]">
+						電話AIエージェント
+						<br />
+						BOTCHAN AICALL
+					</span>
 				</div>
 				<div className="flex items-center gap-1">
 					<LocaleToggle />
