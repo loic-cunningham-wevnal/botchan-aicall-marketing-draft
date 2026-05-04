@@ -286,40 +286,39 @@ const Scene: React.FC<SceneProps> = ({
 
   useFrame((state) => {
     if (materialRef.current) {
-      materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
-      materialRef.current.uniforms.uResolution.value.set(
-        size.width,
-        size.height,
-      );
-      materialRef.current.uniforms.uColor.value.set(color);
-      materialRef.current.uniforms.uInvert.value = invert;
-      materialRef.current.uniforms.uScale.value = scale;
-      materialRef.current.uniforms.uSize.value = elementSize;
-      materialRef.current.uniforms.uSpeed.value = speed;
-      materialRef.current.uniforms.uHasMouse.value = hasMouse ? 1.0 : 0.0;
-      materialRef.current.uniforms.uIntensity.value = intensity;
-      materialRef.current.uniforms.uInteractIntensity.value =
-        interactionIntensity;
-      materialRef.current.uniforms.uWaveTension.value = waveTension;
-      materialRef.current.uniforms.uWaveTwist.value = waveTwist;
-      materialRef.current.uniforms.uCharCount.value = safeCharacters.length;
+      // noUncheckedIndexedAccess turns every uniform lookup into `IUniform |
+      // undefined`. The keys touched here are all set in `uniforms` below;
+      // cast once to skip the per-line non-null assertions.
+      // biome-ignore lint/suspicious/noExplicitAny: shader uniforms hold mixed runtime types
+      const u = materialRef.current.uniforms as any;
+      u.uTime.value = state.clock.elapsedTime;
+      u.uResolution.value.set(size.width, size.height);
+      u.uColor.value.set(color);
+      u.uInvert.value = invert;
+      u.uScale.value = scale;
+      u.uSize.value = elementSize;
+      u.uSpeed.value = speed;
+      u.uHasMouse.value = hasMouse ? 1.0 : 0.0;
+      u.uIntensity.value = intensity;
+      u.uInteractIntensity.value = interactionIntensity;
+      u.uWaveTension.value = waveTension;
+      u.uWaveTwist.value = waveTwist;
+      u.uCharCount.value = safeCharacters.length;
 
       if (fontTextureRef.current) {
-        materialRef.current.uniforms.uFontTexture.value =
-          fontTextureRef.current;
+        u.uFontTexture.value = fontTextureRef.current;
       }
 
       if (videoTextureRef.current) {
-        materialRef.current.uniforms.uVideoTexture.value =
-          videoTextureRef.current;
-        materialRef.current.uniforms.uHasVideo.value = true;
+        u.uVideoTexture.value = videoTextureRef.current;
+        u.uHasVideo.value = true;
       } else {
-        materialRef.current.uniforms.uVideoTexture.value = null;
-        materialRef.current.uniforms.uHasVideo.value = false;
+        u.uVideoTexture.value = null;
+        u.uHasVideo.value = false;
       }
 
       if (mouse.current) {
-        materialRef.current.uniforms.uMouse.value.lerp(mouse.current, 0.1);
+        u.uMouse.value.lerp(mouse.current, 0.1);
       }
     }
   });
