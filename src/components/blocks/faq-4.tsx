@@ -58,7 +58,7 @@ export default function Faq4() {
 					viewport={{ once: true }}
 					whileInView={{ opacity: 1 }}
 				>
-					FAQ · 07 — よくある質問
+					FAQ · 08 — よくある質問
 				</motion.p>
 				<div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.6fr] lg:gap-20">
 					<div className="relative flex flex-col gap-6 pl-6">

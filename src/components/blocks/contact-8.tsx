@@ -35,7 +35,7 @@ export default function Contact8() {
 					>
 						<div className="flex flex-col gap-4">
 							<p className="font-mono text-[10px] text-[var(--ink)]/65 uppercase tracking-[0.22em] sm:text-[max(0.7rem,0.8vmax)]">
-								Contact · 08 — まずはお気軽にご相談ください
+								Contact · 09 — まずはお気軽にご相談ください
 							</p>
 							<h2 className="max-w-[16ch] font-display font-semibold text-4xl text-[var(--ink)] leading-[1.05] tracking-[-0.025em] sm:text-5xl md:text-6xl">
 								貴社の課題をお聞かせください。最適なご提案をお返しします。

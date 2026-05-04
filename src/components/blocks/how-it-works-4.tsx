@@ -90,7 +90,7 @@ export default function HowItWorks4() {
 					whileInView={{ opacity: 1, y: 0 }}
 				>
 					<p className="font-mono text-[10px] text-[var(--ink)]/60 uppercase tracking-[0.22em] sm:text-[max(0.7rem,0.8vmax)]">
-						Implementation · 06 — 導入までの流れ
+						Implementation · 07 — 導入までの流れ
 					</p>
 					<h2 className="max-w-[26ch] font-display font-semibold text-3xl text-[var(--ink)] leading-[1.05] tracking-[-0.025em] sm:text-5xl md:text-6xl">
 						導入はおひとりで進めなくて結構です。診断から運用最適化まで、専任CSが伴走します。

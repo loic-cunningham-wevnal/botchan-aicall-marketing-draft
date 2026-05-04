@@ -9,6 +9,7 @@ const NAV_ITEMS = [
 	{ title: "実績", subtitle: "導入企業の数値", href: "#proof" },
 	{ title: "ソリューション", subtitle: "AICALLとは", href: "#solution" },
 	{ title: "特長", subtitle: "3つの強み", href: "#features" },
+	{ title: "比較", subtitle: "コールセンターとの違い", href: "#comparison" },
 	{ title: "活用シーン", subtitle: "業界別ユースケース", href: "#cases" },
 	{ title: "導入の流れ", subtitle: "ご相談から運用まで", href: "#implementation" },
 	{ title: "FAQ", subtitle: "よくある質問", href: "#faq" },

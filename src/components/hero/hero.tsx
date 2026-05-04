@@ -8,6 +8,7 @@ import Contact8 from "~/components/blocks/contact-8";
 import Faq4 from "~/components/blocks/faq-4";
 import Footer8 from "~/components/blocks/footer-8";
 import HowItWorks4 from "~/components/blocks/how-it-works-4";
+import Pricing8 from "~/components/blocks/pricing-8";
 import ProofMetrics from "~/components/blocks/proof-metrics";
 import SocialProof12 from "~/components/blocks/social-proof-12";
 import GradualBlur from "~/components/gradual-blur/gradual-blur";
@@ -46,6 +47,7 @@ export function Hero() {
 				<ProofMetrics />
 				<SolutionBridgeSection />
 				<StrengthsSection />
+				<Pricing8 />
 				<SocialProof12 />
 				<HowItWorks4 />
 				<Faq4 />

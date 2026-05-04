@@ -204,7 +204,7 @@ export default function SocialProof12() {
 				>
 					<div className="flex flex-col gap-3">
 						<p className="font-mono text-[10px] text-[var(--ink)]/60 uppercase tracking-[0.22em] sm:text-[max(0.7rem,0.8vmax)]">
-							Cases · 05 — 主な活用シーン
+							Cases · 06 — 主な活用シーン
 						</p>
 						<h2 className="max-w-[24ch] font-display font-semibold text-3xl text-[var(--ink)] tracking-[-0.025em] sm:text-5xl md:text-6xl">
 							貴社の業務を、そのままAIエージェントに当てはめる。
