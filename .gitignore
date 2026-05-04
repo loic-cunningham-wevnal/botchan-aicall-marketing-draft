@@ -1,0 +1,61 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/cache
+.yarn/install-state.gz
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# production
+/build
+/dist
+
+# misc
+.DS_Store
+*.pem
+Thumbs.db
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+# do not commit any .env files to git, except for the .env.example file. https://create.t3.gg/en/usage/env-variables#using-environment-variables
+.env
+.env*.local
+
+# vercel
+.vercel
+
+# lingo.dev compiler
+# Commit `src/lingo/cache/*.json` — these are the translation dictionaries
+# Vercel uses (buildMode: "cache-only" in next.config.js).
+# Ignore the LMDB metadata stores and the dev translation-server log.
+src/lingo/metadata-dev/
+src/lingo/metadata-build/
+src/lingo/translation-server.log
+
+# typescript
+*.tsbuildinfo
+
+# editors
+.idea
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+
+# turbo / next cache
+.turbo
