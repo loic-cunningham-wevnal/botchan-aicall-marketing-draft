@@ -20,6 +20,7 @@ import GrainWave from "~/components/react-bits/grain-wave";
 import LiquidLines from "~/components/react-bits/liquid-lines";
 import PixelBlast from "~/components/react-bits/pixel-blast";
 import { Portal } from "~/components/react-bits/portal";
+import Orb from "~/components/orb/orb";
 import { ThemeToggle } from "~/components/theme-toggle";
 import { WevnalLogo } from "~/components/wevnal-logo";
 
@@ -66,26 +67,19 @@ export function Hero() {
 function HeroOrbSection() {
 	return (
 		<section className="relative isolate h-dvh w-full overflow-hidden bg-[var(--canvas)] text-[var(--ink)]">
-			{/* Portal — primary visual */}
+			{/* Orb — primary visual */}
 			<motion.div
 				animate={{ opacity: 1 }}
 				className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 z-[1] aspect-square w-[min(85vh,90vw)]"
 				initial={{ opacity: 0 }}
 				transition={{ duration: 1.4, ease }}
 			>
-				<Portal
-					brightness={0.5}
-					centerColor="#0cf"
-					density={1.0}
-					depthIntensity={0.65}
-					layerCount={10}
-					primaryColor="#0366f3"
-					scale={2.0}
-					secondaryColor="#0500e7"
-					speed={0.1}
-					verticalDistortion={1.5}
-					waveAmplitude={1.3}
-					waveFrequency={0.75}
+				<Orb
+					backgroundColor="#000000"
+					forceHoverState={false}
+					hoverIntensity={0.45}
+					hue={0}
+					rotateOnHover
 				/>
 			</motion.div>
 
@@ -426,7 +420,7 @@ function SolutionBridgeSection() {
 										<span className="h-2.5 w-2.5 animate-pulse rounded-full bg-[#1ed760]" />
 										<span>稼働中</span>
 									</span>
-									<span>5G</span>
+									<WevnalLogo className="h-[22px] text-white/85" />
 								</div>
 
 								{/* Caller block — top section */}
@@ -442,30 +436,23 @@ function SolutionBridgeSection() {
 									</span>
 								</div>
 
-								{/* Portal — flex-centered. The `[&_canvas]` rule forces the inner Three.js canvas to fill the box (without it, Portal sizes the canvas to the *post-CSS-scale* getBoundingClientRect width and pins it to top-left). */}
+								{/* Orb — flex-centered, scaled with the device frame. */}
 								<div className="absolute inset-0 z-10 flex items-center justify-center">
 									<motion.div
 										animate={{ scale: [1, 1.05, 1, 1.03, 1] }}
-										className="relative aspect-square w-[88%] [&_canvas]:!h-full [&_canvas]:!w-full"
+										className="relative aspect-square w-[88%]"
 										transition={{
 											duration: 3.6,
 											repeat: Infinity,
 											ease: "easeInOut",
 										}}
 									>
-										<Portal
-											brightness={0.7}
-											centerColor="#0cf"
-											density={1.1}
-											depthIntensity={0.7}
-											layerCount={10}
-											primaryColor="#0366f3"
-											scale={2}
-											secondaryColor="#0500e7"
-											speed={0.2}
-											verticalDistortion={1.4}
-											waveAmplitude={1.3}
-											waveFrequency={0.75}
+										<Orb
+											backgroundColor="#000000"
+											forceHoverState={false}
+											hoverIntensity={0.55}
+											hue={0}
+											rotateOnHover
 										/>
 									</motion.div>
 								</div>
