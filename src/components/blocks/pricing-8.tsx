@@ -1,205 +1,136 @@
 "use client";
 
-import { ArrowRight, Check } from "lucide-react";
+import { useState } from "react";
 import { motion } from "motion/react";
-import Stats9 from "~/components/blocks/stats-9";
+import { Check, ChevronUp, ChevronDown } from "lucide-react";
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const tiers = ["Starter", "Team", "Enterprise"];
 
-type Tier = {
-	name: string;
-	tagline: string;
-	pitch: string;
-	features: string[];
-	cta: string;
-	popular?: boolean;
-};
-
-const TIERS: Tier[] = [
-	{
-		name: "PoC",
-		tagline: "効果検証",
-		pitch: "本格導入前に、貴社のトラフィックで効果を実証します。",
-		features: [
-			"月100コールまで",
-			"基本シナリオ × 1",
-			"基本データ連携",
-			"2週間の効果検証",
-		],
-		cta: "お見積り",
-	},
-	{
-		name: "スタンダード",
-		tagline: "人気プラン",
-		pitch: "月間数千コール規模の運用に最適なプラン。",
-		features: [
-			"月5,000コールまで",
-			"シナリオ × 3まで",
-			"標準API連携",
-			"月次パフォーマンスレポート",
-		],
-		cta: "お見積り",
-		popular: true,
-	},
-	{
-		name: "エンタープライズ",
-		tagline: "カスタム規模",
-		pitch: "カスタム連携・ガバナンス・ルーティングに対応。",
-		features: [
-			"コール数 無制限",
-			"カスタムシナリオ",
-			"フルカスタム連携",
-			"専任サポート",
-		],
-		cta: "セールスに相談",
-	},
+const monitoringRows: Array<{ label: string; values: Array<true | string> }> = [
+  { label: "Real-time error tracking", values: [true, true, true] },
+  { label: "Uptime checks every 60 seconds", values: [true, true, true] },
+  { label: "Unlimited dashboards and views", values: [true, true, true] },
+  { label: "Source map & sourcemap symbolication", values: [true, true, true] },
+  { label: "Release health and regression detection", values: [true, true, true] },
+  {
+    label: "Retention window",
+    values: [
+      "30 days of event history",
+      "+ 90 days of event history with unlimited exports to your warehouse",
+      "+ 90 days of event history with unlimited exports to your warehouse",
+    ],
+  },
 ];
 
+const incidentRows: Array<{ label: string; values: Array<true | string> }> = [
+  { label: "On-call scheduling", values: [true, true, true] },
+  { label: "Slack, Teams, and PagerDuty integrations", values: [true, true, true] },
+  {
+    label: "Escalation policies",
+    values: [
+      "One policy per workspace",
+      "+ Unlimited escalation policies with routing by service, region, and severity",
+      "+ Unlimited escalation policies with routing by service, region, and severity",
+    ],
+  },
+];
+
+function Cell({ v }: { v: true | string }) {
+  if (v === true) {
+    return (
+      <span className="grid place-items-center h-5 w-5 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900">
+        <Check className="h-3 w-3" />
+      </span>
+    );
+  }
+  return <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">{v}</p>;
+}
+
+function Section({
+  title,
+  rows,
+}: {
+  title: string;
+  rows: Array<{ label: string; values: Array<true | string> }>;
+}) {
+  const [open, setOpen] = useState(true);
+  return (
+    <div className="border-t border-neutral-200 dark:border-neutral-800">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="w-full grid grid-cols-4 items-center py-5 cursor-pointer"
+      >
+        <span className="col-span-1 text-xl font-medium text-neutral-900 dark:text-white text-left">
+          {title}
+        </span>
+        <span className="col-span-3 flex justify-end pr-2 text-neutral-500 dark:text-neutral-500">
+          {open ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+        </span>
+      </button>
+      {open &&
+        rows.map((r) => (
+          <div
+            key={r.label}
+            className="grid grid-cols-1 md:grid-cols-4 gap-6 items-start py-5 border-t border-neutral-200 dark:border-neutral-800"
+          >
+            <a
+              href="#"
+              className="text-sm text-neutral-800 dark:text-neutral-200 underline underline-offset-4 decoration-neutral-300 dark:decoration-neutral-700"
+            >
+              {r.label}
+            </a>
+            {r.values.map((v, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <span className="md:hidden text-xs uppercase tracking-wider text-neutral-500 dark:text-neutral-500 w-24 shrink-0">
+                  {tiers[i]}
+                </span>
+                <Cell v={v} />
+              </div>
+            ))}
+          </div>
+        ))}
+    </div>
+  );
+}
+
 export default function Pricing8() {
-	return (
-		<section
-			className="relative isolate w-full bg-[var(--canvas)] px-4 py-20 text-[var(--ink)] sm:px-6 sm:py-28 lg:px-8"
-			id="pricing"
-		>
-			<div className="mx-auto w-full max-w-[1400px]">
-				{/* Header — left-aligned to match the rest of the page */}
-				<motion.div
-					className="flex flex-col items-start gap-4"
-					initial={{ opacity: 0, y: 12 }}
-					transition={{ duration: 0.6, ease }}
-					viewport={{ once: true, margin: "-15%" }}
-					whileInView={{ opacity: 1, y: 0 }}
-				>
-					<p className="font-mono text-[10px] text-[var(--ink)]/60 uppercase tracking-[0.22em] sm:text-[max(0.7rem,0.8vmax)]">
-						Pricing · 11 — 料金プラン
-					</p>
-					<h2 className="font-display font-semibold text-4xl text-[var(--ink)] leading-[1.05] tracking-[-0.03em] sm:text-5xl md:text-[max(3.4rem,4.2vmax)]">
-						コールセンターに払うか。{" "}
-						<span className="text-[var(--ink)]/40">AICALLに払うか。</span>
-					</h2>
-				</motion.div>
+  return (
+    <section className="w-full min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-neutral-950">
+      <div className="max-w-[1400px] mx-auto w-full">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
+          <motion.h2
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl sm:text-5xl font-serif text-neutral-900 dark:text-white leading-[1.05]"
+          >
+            Compare
+            <br />
+            every plan
+          </motion.h2>
 
-				{/* Interactive cost-of-ownership viz */}
-				<div className="mt-10 sm:mt-14">
-					<Stats9 />
-				</div>
+          {tiers.map((t, i) => (
+            <div key={t} className="flex flex-col gap-4">
+              <p className="text-xl text-neutral-900 dark:text-white">{t}</p>
+              <button
+                className={`w-full py-3 rounded-full text-sm font-medium cursor-pointer transition-colors ${
+                  i === 0
+                    ? "bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:opacity-90"
+                    : "border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900"
+                }`}
+              >
+                {i === 2 ? "Contact sales" : "Start free"}
+              </button>
+            </div>
+          ))}
+        </div>
 
-				{/* Section divider — leading into the 3 tiers */}
-				<motion.div
-					className="mt-12 flex flex-col items-start gap-3 sm:mt-16"
-					initial={{ opacity: 0, y: 10 }}
-					transition={{ duration: 0.5, ease, delay: 0.1 }}
-					viewport={{ once: true, margin: "-15%" }}
-					whileInView={{ opacity: 1, y: 0 }}
-				>
-					<p className="font-mono text-[10px] text-[var(--ink)]/55 uppercase tracking-[0.22em] sm:text-[max(0.7rem,0.8vmax)]">
-						プラン · コール量に合わせてお選びください
-					</p>
-				</motion.div>
-
-				{/* 3 plan cards */}
-				<div className="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-3">
-					{TIERS.map((t, i) => (
-						<motion.article
-							className={
-								t.popular
-									? "relative flex flex-col gap-6 rounded-2xl border border-[#0cf] bg-black p-7 text-white shadow-[0_0_0_1px_rgba(0,204,255,0.4),0_24px_60px_-24px_rgba(0,204,255,0.45)] sm:p-8"
-									: "relative flex flex-col gap-6 rounded-2xl border border-[var(--rule)] bg-[var(--canvas)] p-7 sm:p-8"
-							}
-							initial={{ opacity: 0, y: 18 }}
-							key={t.name}
-							transition={{ duration: 0.6, ease, delay: 0.08 * i }}
-							viewport={{ once: true, margin: "-15%" }}
-							whileInView={{ opacity: 1, y: 0 }}
-						>
-							{t.popular && (
-								<span className="-top-3 absolute right-7 rounded-full bg-[#0cf] px-2.5 py-1 font-mono text-[10px] text-black uppercase tracking-[0.22em]">
-									人気プラン
-								</span>
-							)}
-
-							<div className="flex flex-col gap-2">
-								<span
-									className={
-										t.popular
-											? "font-mono text-[10px] text-[#0cf] uppercase tracking-[0.22em]"
-											: "font-mono text-[10px] text-[var(--ink)]/55 uppercase tracking-[0.22em]"
-									}
-								>
-									P / {String(i + 1).padStart(2, "0")} · {t.tagline}
-								</span>
-								<h3
-									className={
-										t.popular
-											? "font-display font-semibold text-3xl text-white tracking-[-0.025em] sm:text-4xl"
-											: "font-display font-semibold text-3xl text-[var(--ink)] tracking-[-0.025em] sm:text-4xl"
-									}
-								>
-									{t.name}
-								</h3>
-							</div>
-
-							<p
-								className={
-									t.popular
-										? "max-w-[36ch] font-light text-sm text-white/80 leading-[1.55]"
-										: "max-w-[36ch] font-light text-[var(--ink)]/72 text-sm leading-[1.55]"
-								}
-							>
-								{t.pitch}
-							</p>
-
-							<ul
-								className={
-									t.popular
-										? "flex flex-col gap-2 border-white/15 border-t pt-5"
-										: "flex flex-col gap-2 border-[var(--rule)] border-t pt-5"
-								}
-							>
-								{t.features.map((f) => (
-									<li
-										className={
-											t.popular
-												? "flex items-start gap-2.5 text-sm text-white/90"
-												: "flex items-start gap-2.5 text-[var(--ink)]/85 text-sm"
-										}
-										key={f}
-									>
-										<Check
-											className="mt-0.5 h-4 w-4 shrink-0 text-[#0cf]"
-											strokeWidth={2.5}
-										/>
-										{f}
-									</li>
-								))}
-							</ul>
-
-							<a
-								className={
-									t.popular
-										? "mt-auto inline-flex items-center justify-between gap-2 rounded-full bg-white px-4 py-3 font-mono text-[10px] text-neutral-900 uppercase tracking-[0.18em] transition-colors hover:bg-neutral-100"
-										: "mt-auto inline-flex items-center justify-between gap-2 rounded-full bg-[var(--ink)] px-4 py-3 font-mono text-[var(--canvas)] text-[10px] uppercase tracking-[0.18em] transition-opacity hover:opacity-85"
-								}
-								href="#contact"
-							>
-								<span>{t.cta}</span>
-								<ArrowRight className="h-3.5 w-3.5" />
-							</a>
-						</motion.article>
-					))}
-				</div>
-
-				{/* Footer microcopy */}
-				<motion.p
-					className="mt-10 text-center font-mono text-[10px] text-[var(--ink)]/55 uppercase tracking-[0.22em] sm:text-[max(0.7rem,0.8vmax)]"
-					initial={{ opacity: 0 }}
-					transition={{ duration: 0.5, ease, delay: 0.3 }}
-					viewport={{ once: true }}
-					whileInView={{ opacity: 1 }}
-				>
-					価格はすべて担当CSリードがお見積り · 公開価格はございません
-				</motion.p>
-			</div>
-		</section>
-	);
+        <div className="mt-10">
+          <Section title="Monitoring" rows={monitoringRows} />
+          <Section title="Incident Response" rows={incidentRows} />
+        </div>
+      </div>
+    </section>
+  );
 }
