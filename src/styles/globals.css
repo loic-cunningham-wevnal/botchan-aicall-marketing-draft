@@ -64,13 +64,21 @@
 }
 
 .dark {
-	/* dark = pure black canvas, ivory ink */
-	--canvas: #000000;
+	/* dark canvas — try a few. Active = uncommented.
+	 *   #0a0b0d  soft charcoal, slight cool cast (very near-black)
+	 *   #0a0a0a  neutral cool grey, Linear/Vercel-style breathing room
+	 *   #0b0908  warm charcoal that echoes the ivory ink
+	 *   #0e1014  cooler — subtle blue-grey, pairs with the cyan accents
+	 *   #080808  near-black neutral, one tick off pure black
+	 *   #13110d  subtle warm brown-grey, more visible "not black"
+	 *   #0d0d10  minimal cool tint, almost imperceptible
+	 */
+	--canvas: #0a0a0a;
 	--ink: #f1ede4;
 	--haze: rgba(241, 237, 228, 0.06);
 	--rule: rgba(241, 237, 228, 0.16);
 	--accent: oklch(0.274 0.006 286.033);
-	--orb-bg: #000000;
+	--orb-bg: #0a0a0a;
 	--orb-hue: 0;
 	--grid-dot: rgba(241, 237, 228, 0.12);
 	color-scheme: dark;
