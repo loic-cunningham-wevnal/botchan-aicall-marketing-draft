@@ -6,7 +6,6 @@ import { Geist_Mono, Inter } from "next/font/google";
 
 import { Navigation } from "~/components/navigation/navigation";
 import { ScrollScrim } from "~/components/scroll-scrim";
-import { SmoothScroll } from "~/components/smooth-scroll";
 import { ThemeProvider } from "~/components/theme-provider";
 import { cn } from "~/lib/utils";
 import { TRPCReactProvider } from "~/trpc/react";
@@ -46,9 +45,7 @@ export default function RootLayout({
 						disableTransitionOnChange
 						enableSystem={false}
 					>
-						<SmoothScroll>
-							<TRPCReactProvider>{children}</TRPCReactProvider>
-						</SmoothScroll>
+						<TRPCReactProvider>{children}</TRPCReactProvider>
 						<ScrollScrim
 							sectionIds={["problem", "solution", "comparison"]}
 						/>

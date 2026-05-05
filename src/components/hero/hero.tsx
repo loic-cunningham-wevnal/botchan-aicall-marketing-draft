@@ -155,6 +155,10 @@ function SpokenContent({ turn, done = false }: { turn: Turn; done?: boolean }) {
 		isAgent ? "text-[#0cf]" : "text-white"
 	}`;
 
+	// Keep TextType mounted across the typing → done transition. Toggling
+	// `showCursor` (rather than swapping in a plain <div>) avoids React
+	// unmount/remount of the inner content, which was causing a one-frame
+	// white-box flash whenever a message finished typing.
 	return (
 		<>
 			<div
@@ -162,24 +166,20 @@ function SpokenContent({ turn, done = false }: { turn: Turn; done?: boolean }) {
 			>
 				{SPEAKER_LABEL[turn.speaker]}
 			</div>
-			{done ? (
-				<div className={textClass}>{turn.text}</div>
-			) : (
-				<TextType
-					as="div"
-					className={textClass}
-					cursorCharacter="▍"
-					cursorClassName={isAgent ? "text-[#0cf]" : "text-white"}
-					initialDelay={isAgent ? 60 : 80}
-					loop={false}
-					showCursor
-					text={turn.text}
-					typingSpeed={isAgent ? 22 : 28}
-					variableSpeed={
-						isAgent ? { min: 14, max: 36 } : { min: 18, max: 48 }
-					}
-				/>
-			)}
+			<TextType
+				as="div"
+				className={textClass}
+				cursorCharacter="▍"
+				cursorClassName={isAgent ? "text-[#0cf]" : "text-white"}
+				initialDelay={isAgent ? 60 : 80}
+				loop={false}
+				showCursor={!done}
+				text={turn.text}
+				typingSpeed={isAgent ? 22 : 28}
+				variableSpeed={
+					isAgent ? { min: 14, max: 36 } : { min: 18, max: 48 }
+				}
+			/>
 		</>
 	);
 }

@@ -2,7 +2,6 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useSpring, useMotionValue } from "motion/react";
-import { ReactLenis } from "lenis/react";
 import { cn } from "~/lib/utils";
 
 export interface DeviceProps {
@@ -178,12 +177,7 @@ const Device = React.forwardRef<HTMLDivElement, DeviceProps>(
     };
 
     const screenContent = isScrollable ? (
-      <ReactLenis
-        options={{
-          lerp: 0.1,
-          duration: 1.2,
-          smoothWheel: true,
-        }}
+      <div
         className={cn(
           "absolute inset-[1.9rem] overflow-y-auto scrollbar-hide rounded-[5rem]",
         )}
@@ -198,7 +192,7 @@ const Device = React.forwardRef<HTMLDivElement, DeviceProps>(
             draggable={false}
           />
         )}
-      </ReactLenis>
+      </div>
     ) : (
       <div
         className={cn("absolute inset-[1.9rem] overflow-hidden rounded-[5rem]")}
