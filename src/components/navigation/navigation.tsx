@@ -155,29 +155,21 @@ export function Navigation() {
 
 										<motion.div
 											animate={{ opacity: 1, y: 0 }}
-											className="flex items-center justify-between gap-5 border-[var(--rule)] border-t pt-4"
+											className="flex items-center gap-5 border-[var(--rule)] border-t pt-4"
 											initial={{ opacity: 0, y: 10 }}
 											transition={{ duration: 0.3, delay: 0.55 }}
 										>
-											<div className="flex items-center gap-5">
-												{SOCIAL_LINKS.map((link) => (
-													<a
-														className="font-mono text-[10px] text-[var(--ink)]/50 uppercase tracking-[0.22em] transition-colors hover:text-[var(--ink)]"
-														href={link.href}
-														key={link.name}
-														rel="noopener noreferrer"
-														target="_blank"
-													>
-														{link.name}
-													</a>
-												))}
-											</div>
-											<div className="flex items-center gap-2.5">
-												<span className="font-mono text-[10px] text-[var(--ink)]/45 uppercase tracking-[0.22em]">
-													by
-												</span>
-												<WevnalLogo className="h-4 text-[var(--ink)]/75" />
-											</div>
+											{SOCIAL_LINKS.map((link) => (
+												<a
+													className="font-mono text-[10px] text-[var(--ink)]/50 uppercase tracking-[0.22em] transition-colors hover:text-[var(--ink)]"
+													href={link.href}
+													key={link.name}
+													rel="noopener noreferrer"
+													target="_blank"
+												>
+													{link.name}
+												</a>
+											))}
 										</motion.div>
 									</div>
 								</motion.div>
