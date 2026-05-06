@@ -34,6 +34,9 @@ export interface DeviceProps {
 
   /** Content to display inside the device screen */
   children?: React.ReactNode;
+
+  /** Body finish — black (default) or white aluminium */
+  variant?: "black" | "white";
 }
 
 const Device = React.forwardRef<HTMLDivElement, DeviceProps>(
@@ -49,9 +52,16 @@ const Device = React.forwardRef<HTMLDivElement, DeviceProps>(
       autoAnimate = false,
       className,
       children,
+      variant = "black",
     },
     ref,
   ) => {
+    const isWhite = variant === "white";
+    const bodyClass = isWhite ? "bg-[#f4f4f6]" : "bg-black";
+    const innerFrameClass = isWhite ? "border-[#1a1a1a]" : "border-black";
+    const railColor = isWhite ? "#c8c8cc" : "#484848";
+    const innerHaloColor = isWhite ? "#c8c8cc" : "#484848";
+    const innerEdgeColor = isWhite ? "#ffffff" : "#bcbcbc";
     const deviceRef = useRef<HTMLDivElement>(null);
     const [isHovering, setIsHovering] = useState(false);
     const animationFrameRef = useRef<number | undefined>(undefined);
@@ -245,7 +255,8 @@ const Device = React.forwardRef<HTMLDivElement, DeviceProps>(
           <div
             className={cn(
               "relative w-[35.6rem] h-[72.2rem] rounded-[6rem] flex justify-center select-none",
-              "bg-black transition-shadow duration-300",
+              bodyClass,
+              "transition-shadow duration-300",
             )}
             style={{
               boxShadow:
@@ -300,8 +311,9 @@ const Device = React.forwardRef<HTMLDivElement, DeviceProps>(
 
             {/* Silent Button */}
             <div
-              className="absolute top-[9.8rem] left-[-0.2rem] w-[0.3rem] h-10 bg-[#484848] rounded-tl-[0.3rem] rounded-bl-[0.3rem]"
+              className="absolute top-[9.8rem] left-[-0.2rem] w-[0.3rem] h-10 rounded-tl-[0.3rem] rounded-bl-[0.3rem]"
               style={{
+                backgroundColor: railColor,
                 border: "0.1rem solid rgba(0, 0, 0, 0.1)",
                 borderRight: "none",
               }}
@@ -309,8 +321,9 @@ const Device = React.forwardRef<HTMLDivElement, DeviceProps>(
 
             {/* Volume Up Button */}
             <div
-              className="absolute top-60 left-[-0.2rem] w-[0.3rem] h-20 bg-[#484848] rounded-tl-[0.3rem] rounded-bl-[0.3rem]"
+              className="absolute top-60 left-[-0.2rem] w-[0.3rem] h-20 rounded-tl-[0.3rem] rounded-bl-[0.3rem]"
               style={{
+                backgroundColor: railColor,
                 border: "0.1rem solid rgba(0, 0, 0, 0.1)",
                 borderRight: "none",
               }}
@@ -318,8 +331,9 @@ const Device = React.forwardRef<HTMLDivElement, DeviceProps>(
 
             {/* Volume Down Button */}
             <div
-              className="absolute top-[21.6rem] left-[-0.2rem] w-[0.3rem] h-20 bg-[#484848] rounded-tl-[0.3rem] rounded-bl-[0.3rem]"
+              className="absolute top-[21.6rem] left-[-0.2rem] w-[0.3rem] h-20 rounded-tl-[0.3rem] rounded-bl-[0.3rem]"
               style={{
+                backgroundColor: railColor,
                 border: "0.1rem solid rgba(0, 0, 0, 0.1)",
                 borderRight: "none",
               }}
@@ -327,8 +341,9 @@ const Device = React.forwardRef<HTMLDivElement, DeviceProps>(
 
             {/* Power Button */}
             <div
-              className="absolute top-[16.9rem] right-[-0.3rem] w-[0.3rem] h-20 bg-[#484848] rounded-tl-[0.3rem] rounded-bl-[0.3rem]"
+              className="absolute top-[16.9rem] right-[-0.3rem] w-[0.3rem] h-20 rounded-tl-[0.3rem] rounded-bl-[0.3rem]"
               style={{
+                backgroundColor: railColor,
                 border: "0.1rem solid rgba(0, 0, 0, 0.1)",
                 borderRight: "none",
                 transform: "rotate(180deg)",
@@ -336,21 +351,29 @@ const Device = React.forwardRef<HTMLDivElement, DeviceProps>(
             />
 
             {/* Outer Border Layer */}
-            <div className="absolute inset-0 border-[0.4rem] border-[#484848] rounded-[6rem] pointer-events-none" />
+            <div
+              className="absolute inset-0 border-[0.4rem] rounded-[6rem] pointer-events-none"
+              style={{ borderColor: railColor }}
+            />
 
             {/* Inner Frame Layer */}
-            <div className="absolute inset-[0.3rem] border-[1.6rem] border-black rounded-[5.6rem] pointer-events-none" />
+            <div
+              className={cn(
+                "absolute inset-[0.3rem] border-[1.6rem] rounded-[5.6rem] pointer-events-none",
+                innerFrameClass,
+              )}
+            />
 
             {/* Inner Gradient Border 1 */}
             <div
-              className="absolute inset-[1.1rem] border-[0.3rem] border-[#484848] rounded-[5rem] pointer-events-none opacity-50"
-              style={{ filter: "blur(1px)" }}
+              className="absolute inset-[1.1rem] border-[0.3rem] rounded-[5rem] pointer-events-none opacity-50"
+              style={{ borderColor: innerHaloColor, filter: "blur(1px)" }}
             />
 
             {/* Inner Gradient Border 2 */}
             <div
-              className="absolute inset-[0.7rem] border-[0.4rem] border-[#bcbcbc] rounded-[5.6rem] pointer-events-none opacity-50"
-              style={{ filter: "blur(1px)" }}
+              className="absolute inset-[0.7rem] border-[0.4rem] rounded-[5.6rem] pointer-events-none opacity-50"
+              style={{ borderColor: innerEdgeColor, filter: "blur(1px)" }}
             />
           </div>
         </motion.div>

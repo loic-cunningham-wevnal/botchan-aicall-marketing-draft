@@ -445,7 +445,7 @@ export default function Pricing8() {
 							<a
 								className={
 									c.highlight
-										? "mt-2 inline-flex items-center justify-center rounded-full bg-[#0cf] px-4 py-2.5 font-mono text-[10px] text-black uppercase tracking-[0.18em] transition-opacity hover:opacity-90"
+										? "mt-2 inline-flex items-center justify-center rounded-full bg-[var(--brand-orange)] px-4 py-2.5 font-mono text-[10px] text-white uppercase tracking-[0.18em] transition-opacity hover:opacity-90"
 										: "mt-2 inline-flex items-center justify-center rounded-full border border-[var(--rule)] px-4 py-2.5 font-mono text-[10px] text-[var(--ink)]/65 uppercase tracking-[0.18em]"
 								}
 								href={c.highlight ? "#contact" : undefined}
@@ -483,7 +483,7 @@ export default function Pricing8() {
 					viewport={{ once: true }}
 					whileInView={{ opacity: 1 }}
 				>
-					想定TCO削減率 <span className="text-[#0cf]">40%+</span>（最小ケース）· 担当CSリードがお見積り
+					想定TCO削減率 <span className="text-[var(--brand-orange)]">40%+</span>（最小ケース）· 担当CSリードがお見積り
 				</motion.p>
 			</div>
 

@@ -50,7 +50,7 @@ export function HeroOrbSection() {
 					transition={{ duration: 0.8, ease, delay: 0.85 }}
 				>
 					<motion.a
-						className="rounded-sm bg-[var(--ink)] px-[max(1.6rem,2.2vmax)] py-[max(0.7rem,0.85vmax)] font-medium text-[max(0.7rem,0.78vmax)] text-[var(--canvas)] uppercase tracking-[0.18em] transition-opacity duration-200 hover:opacity-85"
+						className="btn-brand rounded-sm px-[max(1.6rem,2.2vmax)] py-[max(0.7rem,0.85vmax)] font-medium text-[max(0.7rem,0.78vmax)] uppercase tracking-[0.18em]"
 						href="#contact"
 						whileHover={{ scale: 1.03 }}
 						whileTap={{ scale: 0.97 }}

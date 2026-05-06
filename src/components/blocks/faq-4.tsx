@@ -33,23 +33,6 @@ export default function Faq4() {
 			className="relative w-full overflow-hidden bg-[var(--canvas)] px-4 py-20 text-[var(--ink)] sm:px-6 sm:py-28 lg:px-8"
 			id="faq"
 		>
-			<div
-				aria-hidden
-				className="pointer-events-none absolute inset-y-0 right-0 left-0 px-4 sm:px-6 lg:px-8"
-			>
-				<div className="relative mx-auto h-full w-full max-w-[1400px]">
-					<div className="grid h-full grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.6fr] lg:gap-20">
-						<div className="relative hidden lg:block">
-							<div className="absolute inset-y-0 left-0 w-px border-[var(--rule)] border-l border-dashed" />
-						</div>
-						<div className="relative">
-							<div className="absolute inset-y-0 left-0 w-px border-[var(--rule)] border-l border-dashed" />
-							<div className="absolute inset-y-0 right-0 w-px border-[var(--rule)] border-l border-dashed" />
-						</div>
-					</div>
-				</div>
-			</div>
-
 			<div className="relative mx-auto flex w-full max-w-[1400px] flex-col gap-10">
 				<motion.p
 					className="font-mono text-[10px] text-[var(--ink)]/60 uppercase tracking-[0.22em] sm:text-[max(0.7rem,0.8vmax)]"
@@ -118,7 +101,7 @@ export default function Faq4() {
 											<span
 												className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md transition-colors ${
 													isOpen
-														? "bg-[#0cf] text-black"
+														? "bg-[var(--brand-orange)] text-white"
 														: "bg-[var(--haze)] text-[var(--ink)]"
 												}`}
 											>

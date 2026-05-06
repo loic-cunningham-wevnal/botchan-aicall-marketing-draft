@@ -14,9 +14,9 @@ const valueBullets = [
 ];
 
 const proofStats = [
-	{ value: "99.8%", label: "応答率" },
-	{ value: "85%", label: "自動化率" },
-	{ value: "40%", label: "コスト削減" },
+	{ value: "99.8", suffix: "%", label: "応答率" },
+	{ value: "85", suffix: "%", label: "自動化率" },
+	{ value: "40", suffix: "%", label: "コスト削減" },
 ];
 
 export default function Contact8() {
@@ -81,6 +81,9 @@ export default function Contact8() {
 								<div className="flex flex-col items-start gap-1" key={s.label}>
 									<div className="font-display font-light text-[max(1.2rem,1.8vmax)] text-[var(--ink)] tabular-nums leading-none tracking-[-0.025em]">
 										{s.value}
+										<span className="text-[var(--brand-orange)]">
+											{s.suffix}
+										</span>
 									</div>
 									<div className="font-mono text-[10px] text-[var(--ink)]/65 uppercase leading-[1.4] tracking-[0.16em] sm:text-[max(0.65rem,0.75vmax)]">
 										{s.label}
@@ -177,7 +180,7 @@ export default function Contact8() {
 
 						<label className="mt-1 flex items-start gap-2 text-[12px] text-[var(--ink)]/75 leading-relaxed">
 							<input
-								className="mt-1 h-3.5 w-3.5 shrink-0 rounded border-[var(--rule)] bg-transparent text-[#0cf] accent-[#0cf]"
+								className="mt-1 h-3.5 w-3.5 shrink-0 rounded border-[var(--rule)] bg-transparent text-[var(--brand-orange)] accent-[var(--brand-orange)]"
 								required
 								type="checkbox"
 							/>
@@ -187,7 +190,7 @@ export default function Contact8() {
 						</label>
 
 						<motion.button
-							className="mt-2 w-full cursor-pointer rounded-full bg-[var(--ink)] px-6 py-3.5 font-medium text-[var(--canvas)] text-sm uppercase tracking-[0.18em] transition-opacity hover:opacity-85"
+							className="btn-brand mt-2 w-full cursor-pointer rounded-full px-6 py-3.5 font-medium text-sm uppercase tracking-[0.18em]"
 							type="submit"
 							whileHover={{ scale: 1.01 }}
 							whileTap={{ scale: 0.99 }}

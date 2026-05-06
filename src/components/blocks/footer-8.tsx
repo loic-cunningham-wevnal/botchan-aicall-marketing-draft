@@ -178,7 +178,7 @@ export default function Footer8() {
 						fill="var(--ink)"
 						fontSize="min(9.6vw, 158px)"
 						stroke="rgba(241,237,228,0.22)"
-						text="Botchan AICALL"
+						text="BOTCHAN AICALL"
 					/>
 				</div>
 

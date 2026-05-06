@@ -25,12 +25,12 @@ export function WordmarkInner({ glow }: { glow?: boolean }) {
 		<>
 			<motion.h1
 				animate={BOTCHAN_ANIMATE}
-				className="font-black font-display text-[clamp(3rem,12vw,12rem)] lowercase leading-[0.85]"
+				className="font-black font-display text-[clamp(3rem,12vw,12rem)] uppercase leading-[0.85]"
 				initial={BOTCHAN_INITIAL}
 				style={baseStyle}
 				transition={BOTCHAN_TRANSITION}
 			>
-				botchan
+				BOTCHAN
 			</motion.h1>
 			<motion.h2
 				animate={AICALL_ANIMATE}

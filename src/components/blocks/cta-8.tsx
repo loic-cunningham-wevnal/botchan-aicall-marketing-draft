@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
-const WORDMARK = "Botchan AICALL";
+const WORDMARK = "BOTCHAN AICALL";
 
 export default function Cta8() {
 	const sectionRef = useRef<HTMLElement>(null);
@@ -87,7 +87,7 @@ export default function Cta8() {
 		>
 			<div className="relative z-10 flex flex-col items-center">
 				<motion.a
-					className="cursor-pointer rounded-sm bg-white px-10 py-4 font-medium text-[max(0.7rem,0.78vmax)] text-base text-neutral-900 uppercase tracking-[0.18em] transition-colors duration-200 hover:bg-neutral-100"
+					className="btn-brand cursor-pointer rounded-sm px-10 py-4 font-medium text-[max(0.7rem,0.78vmax)] text-base uppercase tracking-[0.18em]"
 					href="#book"
 					initial={{ opacity: 0, y: 12 }}
 					transition={{ duration: 0.6 }}

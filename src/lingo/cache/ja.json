@@ -2,7 +2,7 @@
   "version": 0.1,
   "locale": "ja",
   "entries": {
-    "a843c0da3c8c": "botchan",
+    "a843c0da3c8c": "BOTCHAN",
     "a64862016db6": "AICALL",
     "716a67992f83": "テーマを切り替え",
     "cf2626b26360": "インバウンドコールを24時間365日、Goodオペレーターの品質で自動化。",
@@ -130,7 +130,7 @@
     "aa51108dff80": "+81 3 5551 ••71",
     "90e363387022": "Use Cases",
     "2c1358cb59c3": "{expression0} / {expression1}",
-    "8cf61060bb9e": "botchan",
+    "8cf61060bb9e": "BOTCHAN",
     "25e3b80d1688": "AICALL",
     "02f51ccb1e7b": "インバウンドコールを24時間365日、Goodオペレーターの品質で自動化。",
     "3ef1fc6522db": "無料のデモを予約",
@@ -159,6 +159,7 @@
     "1b1c41506395": "{expression0} · {expression1}",
     "fb5783d7441e": "✓",
     "716e5410ae19": "完了",
-    "bed705ae46dc": "— {expression0}"
+    "bed705ae46dc": "— {expression0}",
+    "b5c6ebd6f14f": "BOTCHAN"
   }
 }

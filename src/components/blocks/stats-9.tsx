@@ -177,7 +177,7 @@ export default function Stats9() {
 				</div>
 				<span className="mt-1 font-mono text-[10px] text-white/55 uppercase tracking-[0.22em]">
 					≈{" "}
-					<span className="text-[#0cf] tabular-nums" ref={fteRef}>
+					<span className="text-[var(--brand-orange)] tabular-nums" ref={fteRef}>
 						{fteEquivalent}
 					</span>{" "}
 					人 オペレーターFTE（24時間365日体制）· 業界平均 ¥{COST_PER_CALL}/コール

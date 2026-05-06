@@ -179,6 +179,7 @@ export function SolutionBridgeSection() {
 									enableParallax={false}
 									enableRotate={false}
 									scale={1}
+									variant={isDark ? "black" : "white"}
 								>
 									<PhoneCallSimulation
 										onProgressChange={setProgress}

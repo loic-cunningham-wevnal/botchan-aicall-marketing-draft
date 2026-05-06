@@ -95,7 +95,7 @@ export default function ProofMetrics() {
 								<span className="font-display font-light text-[clamp(4.5rem,9vw,8rem)] text-[var(--ink)] tabular-nums leading-[0.85] tracking-[-0.045em]">
 									{m.value}
 								</span>
-								<span className="font-display font-light text-[#0cf] text-[clamp(1.6rem,3vw,2.6rem)] leading-none tracking-[-0.02em]">
+								<span className="font-display font-light text-[var(--brand-orange)] text-[clamp(1.6rem,3vw,2.6rem)] leading-none tracking-[-0.02em]">
 									{m.suffix}
 								</span>
 							</div>

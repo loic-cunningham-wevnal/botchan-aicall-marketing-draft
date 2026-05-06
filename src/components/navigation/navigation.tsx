@@ -110,7 +110,7 @@ export function Navigation() {
 												</div>
 											</div>
 											<a
-												className="rounded-md bg-[var(--ink)] px-4 py-2 font-mono text-[11px] text-[var(--canvas)] uppercase tracking-[0.18em] transition-opacity hover:opacity-80"
+												className="btn-brand rounded-md px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em]"
 												href="#contact"
 												onClick={() => setIsExpanded(false)}
 											>

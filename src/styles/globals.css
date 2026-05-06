@@ -17,6 +17,13 @@
 	--color-haze: var(--haze);
 	--color-rule: var(--rule);
 	--color-accent: var(--accent);
+
+	/* BOTCHAN brand palette (matches botchan-aicall.com) */
+	--color-brand-cyan: var(--brand-cyan);
+	--color-brand-blue: var(--brand-blue);
+	--color-brand-blue-deep: var(--brand-blue-deep);
+	--color-brand: var(--brand);
+	--color-brand-orange: var(--brand-orange);
 }
 
 :root {
@@ -29,6 +36,20 @@
 	--orb-bg: #ffffff;
 	--orb-hue: 28;
 	--grid-dot: rgba(20, 17, 13, 0.18);
+
+	/* BOTCHAN brand palette — sourced from botchan-aicall.com */
+	--brand-cyan: #00ccff;
+	--brand-blue: #0366f3;
+	--brand-blue-deep: #0500e7;
+	--brand: #0015e0;
+	--brand-orange: #f44721;
+	--brand-gradient: linear-gradient(
+		90deg,
+		var(--brand-cyan) 0%,
+		var(--brand-blue) 50%,
+		var(--brand-blue-deep) 100%
+	);
+
 	color-scheme: light;
 	--background: var(--canvas);
 	--foreground: var(--ink);
@@ -189,6 +210,31 @@
 
 	.divide-rule > * + * {
 		border-top: 1px solid var(--rule);
+	}
+
+	.bg-brand-gradient {
+		background-image: var(--brand-gradient);
+	}
+
+	.text-brand-gradient {
+		background-image: var(--brand-gradient);
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+	}
+
+	.btn-brand {
+		background-color: var(--brand-orange);
+		color: #ffffff;
+		transition: filter 200ms ease, transform 200ms ease;
+	}
+
+	.btn-brand:hover {
+		filter: brightness(1.06);
+	}
+
+	.btn-brand:active {
+		filter: brightness(0.96);
 	}
 }
 
